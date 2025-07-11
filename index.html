@@ -28,7 +28,7 @@
       margin-bottom: 30px;
     }
     .car-list {
-      display: grid;
+      display: none;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 20px;
     }
@@ -54,9 +54,22 @@
       margin: 0;
       font-size: 1.2rem;
     }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
     .btn-group {
       text-align: center;
-      margin-top: 40px;
+      margin-top: 20px;
     }
     .btn {
       background-color: #2e7d32;
@@ -122,43 +135,72 @@
       <p>Kami menawarkan pelbagai jenis kereta dengan harga mampu milik dan proses loan yang mudah.</p>
     </section>
 
-    <section class="car-list">
+    <div class="btn-group">
+      <button class="btn" onclick="showCars('cash')">Cash</button>
+      <button class="btn" onclick="showCars('loan')">Loan</button>
+      <button class="btn" onclick="openModal()">Semak Kelayakan Loan</button>
+    </div>
+
+    <section id="cash-cars" class="car-list">
       <div class="car">
         <img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020">
         <div class="car-info">
           <h3>Toyota Vios 2020</h3>
-          <p>Auto | 1.5cc | RM58,800</p>
+          <p>Cash | 1.5cc | RM58,800</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Cash%20RM58,800)" class="whatsapp-btn">WhatsApp</a>
         </div>
       </div>
       <div class="car">
         <img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019">
         <div class="car-info">
           <h3>Proton Saga 2019</h3>
-          <p>Auto | 1.3cc | RM28,500</p>
+          <p>Cash | 1.3cc | RM28,500</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Cash%20RM28,500)" class="whatsapp-btn">WhatsApp</a>
         </div>
       </div>
       <div class="car">
         <img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Myvi 2018">
         <div class="car-info">
           <h3>Myvi 2018</h3>
-          <p>Auto | 1.5cc | RM35,900</p>
+          <p>Cash | 1.5cc | RM35,900</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Cash%20RM35,900)" class="whatsapp-btn">WhatsApp</a>
         </div>
       </div>
     </section>
 
-    <div class="btn-group">
-      <button class="btn" onclick="openModal('loan')">Loan</button>
-      <button class="btn" onclick="openModal('cash')">Cash</button>
-      <a class="btn" href="https://forms.gle/xxxxxxxxxx" target="_blank">Semak Kelayakan Loan</a>
-    </div>
+    <section id="loan-cars" class="car-list" style="display: none;">
+      <div class="car">
+        <img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020">
+        <div class="car-info">
+          <h3>Toyota Vios 2020</h3>
+          <p>Loan | 1.5cc | RM600/bulan (36 bulan)</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Loan%20RM600/bulan)" class="whatsapp-btn">WhatsApp</a>
+        </div>
+      </div>
+      <div class="car">
+        <img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019">
+        <div class="car-info">
+          <h3>Proton Saga 2019</h3>
+          <p>Loan | 1.3cc | RM300/bulan (36 bulan)</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Loan%20RM300/bulan)" class="whatsapp-btn">WhatsApp</a>
+        </div>
+      </div>
+      <div class="car">
+        <img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Myvi 2018">
+        <div class="car-info">
+          <h3>Myvi 2018</h3>
+          <p>Loan | 1.5cc | RM400/bulan (36 bulan)</p>
+          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Loan%20RM400/bulan)" class="whatsapp-btn">WhatsApp</a>
+        </div>
+      </div>
+    </section>
 
-    <!-- Tetingkap Modal -->
+    <!-- Tetingkap Modal untuk Semak Kelayakan Loan -->
     <div id="modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal()">&times;</span>
-        <h2 id="modal-title"></h2>
-        <p id="modal-text"></p>
-        <form id="loanForm" style="display: none;">
+        <span class="close" onclick="closeModal()">×</span>
+        <h2>Semak Kelayakan Loan</h2>
+        <form id="loanForm">
           <input type="text" placeholder="Nama Penuh" required style="width: 100%; padding: 10px; margin: 10px 0;">
           <input type="tel" placeholder="Nombor Telefon" required style="width: 100%; padding: 10px; margin: 10px 0;">
           <button type="submit" class="btn">Hantar</button>
@@ -172,22 +214,20 @@
   </footer>
 
   <script>
-    function openModal(type) {
-      const modal = document.getElementById("modal");
-      const modalTitle = document.getElementById("modal-title");
-      const modalText = document.getElementById("modal-text");
-      const loanForm = document.getElementById("loanForm");
-
-      if (type === "loan") {
-        modalTitle.innerText = "Pembayaran melalui Loan";
-        modalText.innerText = "Isi borang di bawah untuk memohon loan. Kami akan hubungi anda secepat mungkin.";
-        loanForm.style.display = "block";
-      } else if (type === "cash") {
-        modalTitle.innerText = "Pembayaran melalui Cash";
-        modalText.innerText = "Bayaran tunai boleh dibuat di pejabat kami di Batu Pahat. Hubungi kami di WhatsApp untuk butiran.";
-        loanForm.style.display = "none";
+    function showCars(type) {
+      const cashCars = document.getElementById("cash-cars");
+      const loanCars = document.getElementById("loan-cars");
+      if (type === "cash") {
+        cashCars.style.display = "grid";
+        loanCars.style.display = "none";
+      } else if (type === "loan") {
+        cashCars.style.display = "none";
+        loanCars.style.display = "grid";
       }
+    }
 
+    function openModal() {
+      const modal = document.getElementById("modal");
       modal.style.display = "flex";
     }
 
@@ -200,7 +240,9 @@
       e.preventDefault();
       const name = document.querySelector("#loanForm input[type='text']").value;
       const phone = document.querySelector("#loanForm input[type='tel']").value;
-      alert(`Terima kasih, ${name}! Kami akan hubungi anda di ${phone} untuk proses loan.`);
+      const message = `Hi, nama saya ${name}, nombor telefon ${phone}. Saya mahu semak kelayakan loan.`;
+      const whatsappURL = `https://wa.me/60197460569?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
       this.reset();
       closeModal();
     });
