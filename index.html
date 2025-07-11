@@ -114,6 +114,18 @@
     .close:hover {
       color: #000;
     }
+    .close-btn {
+      background-color: #ff0000;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .close-btn:hover {
+      background-color: #cc0000;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -213,6 +225,7 @@
             <option value="Tidak">Tidak Ada Loan Kereta/Motor</option>
           </select>
           <button type="submit" class="btn">Hantar</button>
+          <button type="button" class="close-btn" onclick="closeModal()">Close</button>
         </form>
       </div>
     </div>
