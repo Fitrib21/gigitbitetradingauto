@@ -8,7 +8,7 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background: #f4f4f4; /* Kembali ke warna asal */
+      background: #f4f4f4;
     }
     header {
       background-color: #212121;
@@ -27,47 +27,7 @@
       text-align: center;
       margin-bottom: 30px;
     }
-    .car-list {
-      display: none;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-    .car {
-      background: #fff;
-      border-radius: 10px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.2s;
-    }
-    .car:hover {
-      transform: translateY(-5px);
-    }
-    .car img {
-      width: 100%;
-      height: 180px;
-      object-fit: cover;
-    }
-    .car-info {
-      padding: 15px;
-    }
-    .car-info h3 {
-      margin: 0;
-      font-size: 1.2rem;
-    }
-    .whatsapp-btn {
-      background-color: #25D366;
-      color: white;
-      padding: 8px 16px;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      display: inline-block;
-      margin-top: 10px;
-    }
-    .whatsapp-btn:hover {
-      background-color: #128C7E;
-    }
-    .btn-group {
+    .category-btn {
       text-align: center;
       margin-top: 20px;
     }
@@ -86,6 +46,53 @@
     .btn:hover {
       background-color: #1b5e20;
     }
+    .car-section {
+      display: none;
+      margin-top: 20px;
+    }
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .car-card {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+    .car-card:hover {
+      transform: translateY(-5px);
+    }
+    .car-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      position: relative;
+    }
+    .car-info {
+      padding: 15px;
+      text-align: center;
+    }
+    .car-info h3 {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      padding: 8px 16px;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+    }
     .modal {
       display: none;
       position: fixed;
@@ -102,7 +109,7 @@
       padding: 20px;
       border-radius: 10px;
       width: 90%;
-      max-width: 500px;
+      max-width: 800px;
       text-align: center;
     }
     .close {
@@ -126,6 +133,74 @@
     .close-btn:hover {
       background-color: #cc0000;
     }
+    .slider {
+      position: relative;
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.5s ease;
+    }
+    .slide {
+      min-width: 100%;
+      height: 100%;
+    }
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .prev, .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+    }
+    .prev {
+      left: 10px;
+    }
+    .next {
+      right: 10px;
+    }
+    .loan-calculator {
+      margin-top: 20px;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .loan-calculator label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .loan-calculator input {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .loan-calculator button {
+      background-color: #2e7d32;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .loan-calculator button:hover {
+      background-color: #1b5e20;
+    }
+    .result {
+      margin-top: 10px;
+      font-weight: bold;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -147,86 +222,91 @@
       <p>Kami menawarkan pelbagai jenis kereta dengan harga mampu milik dan proses loan yang mudah.</p>
     </section>
 
-    <div class="btn-group">
-      <button class="btn" onclick="showCars('cash')">Cash</button>
-      <button class="btn" onclick="showCars('loan')">Loan</button>
-      <button class="btn" onclick="openModal()">Semak Kelayakan Loan</button>
+    <div class="category-btn">
+      <button class="btn" onclick="showCategory('cash')">Kereta Tunai</button>
+      <button class="btn" onclick="showCategory('loan')">Pinjaman</button>
     </div>
 
-    <section id="cash-cars" class="car-list">
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020">
-        <div class="car-info">
-          <h3>Toyota Vios 2020</h3>
-          <p>Cash | 1.5cc | RM58,800</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Cash%20RM58,800)" class="whatsapp-btn">WhatsApp</a>
+    <section id="cash-section" class="car-section">
+      <div class="car-grid">
+        <div class="car-card" onclick="openCarModal('vios-cash')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020"></div>
+          <div class="car-info">
+            <h3>Toyota Vios 2020</h3>
+            <p>Cash | 1.5cc | RM58,800</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Cash%20RM58,800)" class="whatsapp-btn">WhatsApp</a>
+          </div>
         </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019">
-        <div class="car-info">
-          <h3>Proton Saga 2019</h3>
-          <p>Cash | 1.3cc | RM28,500</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Cash%20RM28,500)" class="whatsapp-btn">WhatsApp</a>
+        <div class="car-card" onclick="openCarModal('saga-cash')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019"></div>
+          <div class="car-info">
+            <h3>Proton Saga 2019</h3>
+            <p>Cash | 1.3cc | RM28,500</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Cash%20RM28,500)" class="whatsapp-btn">WhatsApp</a>
+          </div>
         </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Myvi 2018">
-        <div class="car-info">
-          <h3>Myvi 2018</h3>
-          <p>Cash | 1.5cc | RM35,900</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Cash%20RM35,900)" class="whatsapp-btn">WhatsApp</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="loan-cars" class="car-list" style="display: none;">
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020">
-        <div class="car-info">
-          <h3>Toyota Vios 2020</h3>
-          <p>Loan | 1.5cc | RM600/bulan (36 bulan)</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Loan%20RM600/bulan)" class="whatsapp-btn">WhatsApp</a>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019">
-        <div class="car-info">
-          <h3>Proton Saga 2019</h3>
-          <p>Loan | 1.3cc | RM300/bulan (36 bulan)</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Loan%20RM300/bulan)" class="whatsapp-btn">WhatsApp</a>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Myvi 2018">
-        <div class="car-info">
-          <h3>Myvi 2018</h3>
-          <p>Loan | 1.5cc | RM400/bulan (36 bulan)</p>
-          <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Loan%20RM400/bulan)" class="whatsapp-btn">WhatsApp</a>
+        <div class="car-card" onclick="openCarModal('myvi-cash')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Perodua Myvi 2018"></div>
+          <div class="car-info">
+            <h3>Perodua Myvi 2018</h3>
+            <p>Cash | 1.5cc | RM35,900</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Cash%20RM35,900)" class="whatsapp-btn">WhatsApp</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Tetingkap Modal untuk Semak Kelayakan Loan -->
-    <div id="modal" class="modal">
+    <section id="loan-section" class="car-section" style="display: none;">
+      <div class="car-grid">
+        <div class="car-card" onclick="openCarModal('vios-loan')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020"></div>
+          <div class="car-info">
+            <h3>Toyota Vios 2020</h3>
+            <p>Loan | 1.5cc | RM600/bulan (36 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Loan%20RM600/bulan)" class="whatsapp-btn">WhatsApp</a>
+          </div>
+        </div>
+        <div class="car-card" onclick="openCarModal('saga-loan')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019"></div>
+          <div class="car-info">
+            <h3>Proton Saga 2019</h3>
+            <p>Loan | 1.3cc | RM300/bulan (36 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Loan%20RM300/bulan)" class="whatsapp-btn">WhatsApp</a>
+          </div>
+        </div>
+        <div class="car-card" onclick="openCarModal('myvi-loan')">
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Perodua Myvi 2018"></div>
+          <div class="car-info">
+            <h3>Perodua Myvi 2018</h3>
+            <p>Loan | 1.5cc | RM400/bulan (36 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Loan%20RM400/bulan)" class="whatsapp-btn">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="loan-calculator">
+        <h3>Kalkulator Pinjaman</h3>
+        <label for="loan-amount">Jumlah Pinjaman (RM):</label>
+        <input type="number" id="loan-amount" value="30000">
+        <label for="interest-rate">Kadar Faedah (% setahun):</label>
+        <input type="number" id="interest-rate" value="3" step="0.1">
+        <label for="loan-term">Tempoh Pinjaman (bulan):</label>
+        <input type="number" id="loan-term" value="36">
+        <button onclick="calculateLoan()">Kira</button>
+        <div class="result" id="loan-result"></div>
+      </div>
+    </section>
+
+    <!-- Modal untuk Slider Gambar -->
+    <div id="car-modal" class="modal">
       <div class="modal-content">
-        <span class="close" onclick="closeModal()">×</span>
-        <h2>Semak Kelayakan Loan</h2>
-        <form id="loanForm">
-          <input type="text" placeholder="Nama Penuh" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="number" placeholder="Umur" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="text" placeholder="Kerja" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="text" placeholder="Berapa Lama Kerja? (contoh: 2 tahun)" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="number" placeholder="Gaji Bersih (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="text" placeholder="Kereta Model" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="number" placeholder="Bajet Deposit (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <select style="width: 100%; padding: 10px; margin: 10px 0;">
-            <option value="Ya">Ada Loan Kereta/Motor</option>
-            <option value="Tidak">Tidak Ada Loan Kereta/Motor</option>
-          </select>
-          <button type="submit" class="btn">Hantar</button>
-          <button type="button" class="close-btn" onclick="closeModal()">Tutup</button>
-        </form>
+        <span class="close" onclick="closeCarModal()">×</span>
+        <h2 id="car-title"></h2>
+        <div class="slider">
+          <div class="slides" id="car-slides"></div>
+          <button class="prev" onclick="changeSlide(-1)">❮</button>
+          <button class="next" onclick="changeSlide(1)">❯</button>
+        </div>
+        <button type="button" class="close-btn" onclick="closeCarModal()">Tutup</button>
       </div>
     </div>
   </div>
@@ -236,44 +316,94 @@
   </footer>
 
   <script>
-    function showCars(type) {
-      const cashCars = document.getElementById("cash-cars");
-      const loanCars = document.getElementById("loan-cars");
-      if (type === "cash") {
-        cashCars.style.display = "grid";
-        loanCars.style.display = "none";
-      } else if (type === "loan") {
-        cashCars.style.display = "none";
-        loanCars.style.display = "grid";
+    let slideIndex = 0;
+    const cars = {
+      'vios-cash': { name: 'Toyota Vios 2020', price: 'RM58,800', type: 'Cash', images: [
+        'https://via.placeholder.com/800x300?text=Vios+1', 'https://via.placeholder.com/800x300?text=Vios+2',
+        'https://via.placeholder.com/800x300?text=Vios+3', 'https://via.placeholder.com/800x300?text=Vios+4',
+        'https://via.placeholder.com/800x300?text=Vios+5'
+      ]},
+      'saga-cash': { name: 'Proton Saga 2019', price: 'RM28,500', type: 'Cash', images: [
+        'https://via.placeholder.com/800x300?text=Saga+1', 'https://via.placeholder.com/800x300?text=Saga+2',
+        'https://via.placeholder.com/800x300?text=Saga+3', 'https://via.placeholder.com/800x300?text=Saga+4',
+        'https://via.placeholder.com/800x300?text=Saga+5'
+      ]},
+      'myvi-cash': { name: 'Perodua Myvi 2018', price: 'RM35,900', type: 'Cash', images: [
+        'https://via.placeholder.com/800x300?text=Myvi+1', 'https://via.placeholder.com/800x300?text=Myvi+2',
+        'https://via.placeholder.com/800x300?text=Myvi+3', 'https://via.placeholder.com/800x300?text=Myvi+4',
+        'https://via.placeholder.com/800x300?text=Myvi+5'
+      ]},
+      'vios-loan': { name: 'Toyota Vios 2020', price: 'RM600/bulan (36 bulan)', type: 'Loan', images: [
+        'https://via.placeholder.com/800x300?text=Vios+Loan+1', 'https://via.placeholder.com/800x300?text=Vios+Loan+2',
+        'https://via.placeholder.com/800x300?text=Vios+Loan+3', 'https://via.placeholder.com/800x300?text=Vios+Loan+4',
+        'https://via.placeholder.com/800x300?text=Vios+Loan+5'
+      ]},
+      'saga-loan': { name: 'Proton Saga 2019', price: 'RM300/bulan (36 bulan)', type: 'Loan', images: [
+        'https://via.placeholder.com/800x300?text=Saga+Loan+1', 'https://via.placeholder.com/800x300?text=Saga+Loan+2',
+        'https://via.placeholder.com/800x300?text=Saga+Loan+3', 'https://via.placeholder.com/800x300?text=Saga+Loan+4',
+        'https://via.placeholder.com/800x300?text=Saga+Loan+5'
+      ]},
+      'myvi-loan': { name: 'Perodua Myvi 2018', price: 'RM400/bulan (36 bulan)', type: 'Loan', images: [
+        'https://via.placeholder.com/800x300?text=Myvi+Loan+1', 'https://via.placeholder.com/800x300?text=Myvi+Loan+2',
+        'https://via.placeholder.com/800x300?text=Myvi+Loan+3', 'https://via.placeholder.com/800x300?text=Myvi+Loan+4',
+        'https://via.placeholder.com/800x300?text=Myvi+Loan+5'
+      ]}
+    };
+
+    function showCategory(category) {
+      const cashSection = document.getElementById('cash-section');
+      const loanSection = document.getElementById('loan-section');
+      if (category === 'cash') {
+        cashSection.style.display = 'block';
+        loanSection.style.display = 'none';
+      } else if (category === 'loan') {
+        cashSection.style.display = 'none';
+        loanSection.style.display 'block';
       }
     }
 
-    function openModal() {
-      const modal = document.getElementById("modal");
-      modal.style.display = "flex";
+    function openCarModal(carId) {
+      const car = cars[carId];
+      const modal = document.getElementById('car-modal');
+      const title = document.getElementById('car-title');
+      const slides = document.getElementById('car-slides');
+      title.textContent = `${car.name} (${car.type}) - ${car.price}`;
+      slides.innerHTML = '';
+      car.images.forEach(img => {
+        const slide = document.createElement('div');
+        slide.className = 'slide';
+        slide.innerHTML = `<img src="${img}" alt="${car.name} Image">`;
+        slides.appendChild(slide);
+      });
+      slideIndex = 0;
+      updateSlider();
+      modal.style.display = 'flex';
     }
 
-    function closeModal() {
-      const modal = document.getElementById("modal");
-      modal.style.display = "none";
+    function closeCarModal() {
+      const modal = document.getElementById('car-modal');
+      modal.style.display = 'none';
     }
 
-    document.getElementById("loanForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      const name = document.querySelector("#loanForm input[type='text']").value;
-      const age = document.querySelectorAll("#loanForm input[type='number']")[0].value;
-      const job = document.querySelectorAll("#loanForm input[type='text']")[1].value;
-      const workDuration = document.querySelectorAll("#loanForm input[type='text']")[2].value;
-      const salary = document.querySelectorAll("#loanForm input[type='number']")[1].value;
-      const carModel = document.querySelectorAll("#loanForm input[type='text']")[3].value;
-      const deposit = document.querySelectorAll("#loanForm input[type='number']")[2].value;
-      const hasLoan = document.querySelector("#loanForm select").value;
-      const message = `Hi,\nNama: ${name}\nUmur: ${age}\nKerja: ${job}\nBerapa lama kerja: ${workDuration}\nGaji bersih: RM${salary}\nKereta model: ${carModel}\nBajet deposit: RM${deposit}\nAda loan kereta/motor: ${hasLoan}\nSaya mahu semak kelayakan loan.`;
-      const whatsappURL = `https://wa.me/60197460569?text=${encodeURIComponent(message)}`;
-      window.open(whatsappURL, '_blank');
-      this.reset();
-      closeModal();
-    });
+    function changeSlide(n) {
+      slideIndex += n;
+      updateSlider();
+    }
+
+    function updateSlider() {
+      const slides = document.getElementById('car-slides');
+      if (slideIndex >= slides.children.length) slideIndex = 0;
+      if (slideIndex < 0) slideIndex = slides.children.length - 1;
+      slides.style.transform = `translateX(-${slideIndex * 100}%)`;
+    }
+
+    function calculateLoan() {
+      const loanAmount = parseFloat(document.getElementById('loan-amount').value);
+      const interestRate = parseFloat(document.getElementById('interest-rate').value) / 100 / 12;
+      const loanTerm = parseFloat(document.getElementById('loan-term').value);
+      const monthlyPayment = (loanAmount * interestRate * Math.pow(1 + interestRate, loanTerm)) / (Math.pow(1 + interestRate, loanTerm) - 1);
+      document.getElementById('loan-result').textContent = `Bayaran Bulanan: RM${monthlyPayment.toFixed(2)}`;
+    }
   </script>
 </body>
 </html>
