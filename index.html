@@ -255,7 +255,7 @@
       const carModel = document.querySelectorAll("#loanForm input[type='text']")[3].value;
       const deposit = document.querySelectorAll("#loanForm input[type='number']")[2].value;
       const hasLoan = document.querySelector("#loanForm select").value;
-      const message = `Hi, nama saya ${name}, umur ${age}, kerja sebagai ${job}, bekerja ${workDuration}, gaji bersih RM${salary}, minat kereta ${carModel}, bajet deposit RM${deposit}, ada loan kereta/motor: ${hasLoan}. Saya mahu semak kelayakan loan.`;
+      const message = `Hi,\nNama: ${name}\nUmur: ${age}\nKerja: ${job}\nBerapa lama kerja: ${workDuration}\nGaji bersih: RM${salary}\nKereta model: ${carModel}\nBajet deposit: RM${deposit}\nAda loan kereta/motor: ${hasLoan}\nSaya mahu semak kelayakan loan.`;
       const whatsappURL = `https://wa.me/60197460569?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, '_blank');
       this.reset();
