@@ -260,27 +260,27 @@
     <section id="loan-section" class="car-section" style="display: none;">
       <div class="car-grid">
         <div class="car-card" onclick="openCarModal('vios-loan')">
-          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2020" alt="Toyota Vios 2020"></div>
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Toyota+Vios+2012" alt="Toyota Vios 2012"></div>
           <div class="car-info">
-            <h3>Toyota Vios 2020</h3>
-            <p>Loan | 1.5cc | RM600/bulan (36 bulan)</p>
-            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202020%20(Loan%20RM600/bulan)" class="whatsapp-btn">WhatsApp</a>
+            <h3>Toyota Vios 2012</h3>
+            <p>Loan | 1.5cc | RM650/bulan (48 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Toyota%20Vios%202012%20(Loan%20RM650/bulan)" class="whatsapp-btn">WhatsApp</a>
           </div>
         </div>
         <div class="car-card" onclick="openCarModal('saga-loan')">
-          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019"></div>
+          <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Proton+Saga+2015" alt="Proton Saga 2015"></div>
           <div class="car-info">
-            <h3>Proton Saga 2019</h3>
-            <p>Loan | 1.3cc | RM300/bulan (36 bulan)</p>
-            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202019%20(Loan%20RM300/bulan)" class="whatsapp-btn">WhatsApp</a>
+            <h3>Proton Saga 2015</h3>
+            <p>Loan | 1.3cc | RM400/bulan (60 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Proton%20Saga%202015%20(Loan%20RM400/bulan)" class="whatsapp-btn">WhatsApp</a>
           </div>
         </div>
         <div class="car-card" onclick="openCarModal('myvi-loan')">
           <div class="car-image"><img src="https://via.placeholder.com/400x200?text=Perodua+Myvi+2018" alt="Perodua Myvi 2018"></div>
           <div class="car-info">
             <h3>Perodua Myvi 2018</h3>
-            <p>Loan | 1.5cc | RM400/bulan (36 bulan)</p>
-            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Loan%20RM400/bulan)" class="whatsapp-btn">WhatsApp</a>
+            <p>Loan | 1.5cc | RM450/bulan (96 bulan)</p>
+            <a href="https://wa.me/60197460569?text=Hi,%20saya%20berminat%20dengan%20Myvi%202018%20(Loan%20RM450/bulan)" class="whatsapp-btn">WhatsApp</a>
           </div>
         </div>
       </div>
@@ -289,9 +289,9 @@
         <label for="loan-amount">Jumlah Pinjaman (RM):</label>
         <input type="number" id="loan-amount" value="30000">
         <label for="interest-rate">Kadar Faedah (% setahun):</label>
-        <input type="number" id="interest-rate" value="3" step="0.1">
+        <input type="number" id="interest-rate" value="5" step="0.1">
         <label for="loan-term">Tempoh Pinjaman (bulan):</label>
-        <input type="number" id="loan-term" value="36">
+        <input type="number" id="loan-term" value="60">
         <button onclick="calculateLoan()">Kira</button>
         <div class="result" id="loan-result"></div>
       </div>
@@ -357,22 +357,50 @@
         'https://via.placeholder.com/800x300?text=Myvi+3', 'https://via.placeholder.com/800x300?text=Myvi+4',
         'https://via.placeholder.com/800x300?text=Myvi+5'
       ]},
-      'vios-loan': { name: 'Toyota Vios 2020', price: 'RM600/bulan (36 bulan)', type: 'Loan', images: [
+      'vios-loan': { name: 'Toyota Vios 2012', price: 'RM36,000', type: 'Loan', year: 2012, images: [
         'https://via.placeholder.com/800x300?text=Vios+Loan+1', 'https://via.placeholder.com/800x300?text=Vios+Loan+2',
         'https://via.placeholder.com/800x300?text=Vios+Loan+3', 'https://via.placeholder.com/800x300?text=Vios+Loan+4',
         'https://via.placeholder.com/800x300?text=Vios+Loan+5'
       ]},
-      'saga-loan': { name: 'Proton Saga 2019', price: 'RM300/bulan (36 bulan)', type: 'Loan', images: [
+      'saga-loan': { name: 'Proton Saga 2015', price: 'RM24,000', type: 'Loan', year: 2015, images: [
         'https://via.placeholder.com/800x300?text=Saga+Loan+1', 'https://via.placeholder.com/800x300?text=Saga+Loan+2',
         'https://via.placeholder.com/800x300?text=Saga+Loan+3', 'https://via.placeholder.com/800x300?text=Saga+Loan+4',
         'https://via.placeholder.com/800x300?text=Saga+Loan+5'
       ]},
-      'myvi-loan': { name: 'Perodua Myvi 2018', price: 'RM400/bulan (36 bulan)', type: 'Loan', images: [
+      'myvi-loan': { name: 'Perodua Myvi 2018', price: 'RM30,000', type: 'Loan', year: 2018, images: [
         'https://via.placeholder.com/800x300?text=Myvi+Loan+1', 'https://via.placeholder.com/800x300?text=Myvi+Loan+2',
         'https://via.placeholder.com/800x300?text=Myvi+Loan+3', 'https://via.placeholder.com/800x300?text=Myvi+Loan+4',
         'https://via.placeholder.com/800x300?text=Myvi+Loan+5'
       ]}
     };
+
+    function getLoanTerm(year) {
+      if (year <= 2014) return 48; // 4 tahun
+      if (year === 2015) return 60; // 5 tahun
+      if (year === 2016) return 72; // 6 tahun
+      if (year === 2017) return 84; // 7 tahun
+      return 96; // 8 tahun untuk 2018 dan seterusnya
+    }
+
+    function calculateMonthlyPayment(principal, termMonths, interestRate = 0.05) {
+      const monthlyRate = interestRate / 12;
+      return (principal * monthlyRate * Math.pow(1 + monthlyRate, termMonths)) / (Math.pow(1 + monthlyRate, termMonths) - 1);
+    }
+
+    function updateLoanPrices() {
+      for (let carId in cars) {
+        if (cars[carId].type === 'Loan' && cars[carId].year) {
+          const termMonths = getLoanTerm(cars[carId].year);
+          const monthlyPayment = calculateMonthlyPayment(cars[carId].price, termMonths).toFixed(2);
+          const carElement = document.querySelector(`[onclick="openCarModal('${carId}')"] .car-info p`);
+          if (carElement) {
+            carElement.textContent = `Loan | ${cars[carId].year} | RM${monthlyPayment}/bulan (${termMonths} bulan)`;
+          }
+        }
+      }
+    }
+
+    window.onload = updateLoanPrices;
 
     function showCategory(category) {
       const cashSection = document.getElementById('cash-section');
@@ -391,7 +419,7 @@
       const modal = document.getElementById('car-modal');
       const title = document.getElementById('car-title');
       const slides = document.getElementById('car-slides');
-      title.textContent = `${car.name} (${car.type}) - ${car.price}`;
+      title.textContent = `${car.name} (${car.type}) - RM${car.price}`;
       slides.innerHTML = '';
       car.images.forEach(img => {
         const slide = document.createElement('div');
