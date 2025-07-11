@@ -225,6 +225,7 @@
     <div class="category-btn">
       <button class="btn" onclick="showCategory('cash')">Kereta Tunai</button>
       <button class="btn" onclick="showCategory('loan')">Pinjaman</button>
+      <button class="btn" onclick="openLoanModal()">Semak Kelayakan Loan</button>
     </div>
 
     <section id="cash-section" class="car-section">
@@ -296,6 +297,29 @@
       </div>
     </section>
 
+    <!-- Modal untuk Semak Kelayakan Loan -->
+    <div id="loan-modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeLoanModal()">×</span>
+        <h2>Semak Kelayakan Loan</h2>
+        <form id="loanForm">
+          <input type="text" placeholder="Nama Penuh" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Umur" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Kerja" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Berapa Lama Kerja? (contoh: 2 tahun)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Gaji Bersih (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Kereta Model" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Bajet Deposit (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <select style="width: 100%; padding: 10px; margin: 10px 0;">
+            <option value="Ya">Ada Loan Kereta/Motor</option>
+            <option value="Tidak">Tidak Ada Loan Kereta/Motor</option>
+          </select>
+          <button type="submit" class="btn">Hantar</button>
+          <button type="button" class="close-btn" onclick="closeLoanModal()">Tutup</button>
+        </form>
+      </div>
+    </div>
+
     <!-- Modal untuk Slider Gambar -->
     <div id="car-modal" class="modal">
       <div class="modal-content">
@@ -358,7 +382,7 @@
         loanSection.style.display = 'none';
       } else if (category === 'loan') {
         cashSection.style.display = 'none';
-        loanSection.style.display 'block';
+        loanSection.style.display = 'block';
       }
     }
 
@@ -396,6 +420,33 @@
       if (slideIndex < 0) slideIndex = slides.children.length - 1;
       slides.style.transform = `translateX(-${slideIndex * 100}%)`;
     }
+
+    function openLoanModal() {
+      const modal = document.getElementById('loan-modal');
+      modal.style.display = 'flex';
+    }
+
+    function closeLoanModal() {
+      const modal = document.getElementById('loan-modal');
+      modal.style.display = 'none';
+    }
+
+    document.getElementById('loanForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.querySelector('#loanForm input[type="text"]').value;
+      const age = document.querySelectorAll('#loanForm input[type="number"]')[0].value;
+      const job = document.querySelectorAll('#loanForm input[type="text"]')[1].value;
+      const workDuration = document.querySelectorAll('#loanForm input[type="text"]')[2].value;
+      const salary = document.querySelectorAll('#loanForm input[type="number"]')[1].value;
+      const carModel = document.querySelectorAll('#loanForm input[type="text"]')[3].value;
+      const deposit = document.querySelectorAll('#loanForm input[type="number"]')[2].value;
+      const hasLoan = document.querySelector('#loanForm select').value;
+      const message = `Hi,\nNama: ${name}\nUmur: ${age}\nKerja: ${job}\nBerapa lama kerja: ${workDuration}\nGaji bersih: RM${salary}\nKereta model: ${carModel}\nBajet deposit: RM${deposit}\nAda loan kereta/motor: ${hasLoan}\nSaya mahu semak kelayakan loan.`;
+      const whatsappURL = `https://wa.me/60197460569?text=${encodeURIComponent(message)}`;
+      window.open(whatsappURL, '_blank');
+      this.reset();
+      closeLoanModal();
+    });
 
     function calculateLoan() {
       const loanAmount = parseFloat(document.getElementById('loan-amount').value);
