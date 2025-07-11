@@ -202,7 +202,16 @@
         <h2>Semak Kelayakan Loan</h2>
         <form id="loanForm">
           <input type="text" placeholder="Nama Penuh" required style="width: 100%; padding: 10px; margin: 10px 0;">
-          <input type="tel" placeholder="Nombor Telefon" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Umur" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Kerja" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Berapa Lama Kerja? (contoh: 2 tahun)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Gaji Bersih (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="text" placeholder="Kereta Model" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="number" placeholder="Bajet Deposit (RM)" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <select style="width: 100%; padding: 10px; margin: 10px 0;">
+            <option value="Ya">Ada Loan Kereta/Motor</option>
+            <option value="Tidak">Tidak Ada Loan Kereta/Motor</option>
+          </select>
           <button type="submit" class="btn">Hantar</button>
         </form>
       </div>
@@ -239,8 +248,14 @@
     document.getElementById("loanForm").addEventListener("submit", function(e) {
       e.preventDefault();
       const name = document.querySelector("#loanForm input[type='text']").value;
-      const phone = document.querySelector("#loanForm input[type='tel']").value;
-      const message = `Hi, nama saya ${name}, nombor telefon ${phone}. Saya mahu semak kelayakan loan.`;
+      const age = document.querySelectorAll("#loanForm input[type='number']")[0].value;
+      const job = document.querySelectorAll("#loanForm input[type='text']")[1].value;
+      const workDuration = document.querySelectorAll("#loanForm input[type='text']")[2].value;
+      const salary = document.querySelectorAll("#loanForm input[type='number']")[1].value;
+      const carModel = document.querySelectorAll("#loanForm input[type='text']")[3].value;
+      const deposit = document.querySelectorAll("#loanForm input[type='number']")[2].value;
+      const hasLoan = document.querySelector("#loanForm select").value;
+      const message = `Hi, nama saya ${name}, umur ${age}, kerja sebagai ${job}, bekerja ${workDuration}, gaji bersih RM${salary}, minat kereta ${carModel}, bajet deposit RM${deposit}, ada loan kereta/motor: ${hasLoan}. Saya mahu semak kelayakan loan.`;
       const whatsappURL = `https://wa.me/60197460569?text=${encodeURIComponent(message)}`;
       window.open(whatsappURL, '_blank');
       this.reset();
