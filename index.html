@@ -73,6 +73,34 @@
     .btn:hover {
       background-color: #1b5e20;
     }
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+    }
+    .close {
+      color: #888;
+      float: right;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .close:hover {
+      color: #000;
+    }
     footer {
       text-align: center;
       padding: 20px;
@@ -103,7 +131,7 @@
         </div>
       </div>
       <div class="car">
-        <img src=images/Saga.jpg" alt="Proton Saga 2019">
+        <img src="https://via.placeholder.com/400x200?text=Proton+Saga+2019" alt="Proton Saga 2019">
         <div class="car-info">
           <h3>Proton Saga 2019</h3>
           <p>Auto | 1.3cc | RM28,500</p>
@@ -116,145 +144,26 @@
           <p>Auto | 1.5cc | RM35,900</p>
         </div>
       </div>
-      <!-- Tambahan 100 Kereta -->
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Nissan+Almera+2021" alt="Nissan Almera 2021">
-        <div class="car-info">
-          <h3>Nissan Almera 2021</h3>
-          <p>Auto | 1.0cc | RM65,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Honda+City+2020" alt="Honda City 2020">
-        <div class="car-info">
-          <h3>Honda City 2020</h3>
-          <p>Auto | 1.5cc | RM85,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Mazda+3+2019" alt="Mazda 3 2019">
-        <div class="car-info">
-          <h3>Mazda 3 2019</h3>
-          <p>Auto | 2.0cc | RM90,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Perodua+Axia+2022" alt="Perodua Axia 2022">
-        <div class="car-info">
-          <h3>Perodua Axia 2022</h3>
-          <p>Auto | 1.0cc | RM38,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Kia+Picanto+2021" alt="Kia Picanto 2021">
-        <div class="car-info">
-          <h3>Kia Picanto 2021</h3>
-          <p>Auto | 1.2cc | RM45,000</p>
-        </div>
-      </div>
-      <!-- Teruskan menambah sehingga 100+ kereta, contoh lanjut -->
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Toyota+Camry+2018" alt="Toyota Camry 2018">
-        <div class="car-info">
-          <h3>Toyota Camry 2018</h3>
-          <p>Auto | 2.5cc | RM120,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Honda+Civic+2022" alt="Honda Civic 2022">
-        <div class="car-info">
-          <h3>Honda Civic 2022</h3>
-          <p>Auto | 1.5cc | RM130,000</p>
-        </div>
-      </div>
-      <!-- Tambah 93 kereta lagi, contoh lanjut -->
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Proton+X50+2021" alt="Proton X50 2021">
-        <div class="car-info">
-          <h3>Proton X50 2021</h3>
-          <p>Auto | 1.5cc | RM95,000</p>
-        </div>
-      </div>
-      <!-- Ulang sehingga 100, contoh model lain: Proton X70, Hyundai Tucson, dll. -->
-      <!-- Untuk ringkas, saya senaraikan 10 tambahan, anda boleh salin dan tambah -->
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Hyundai+Tucson+2020" alt="Hyundai Tucson 2020">
-        <div class="car-info">
-          <h3>Hyundai Tucson 2020</h3>
-          <p>Auto | 2.0cc | RM110,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Peugeot+3008+2019" alt="Peugeot 3008 2019">
-        <div class="car-info">
-          <h3>Peugeot 3008 2019</h3>
-          <p>Auto | 1.6cc | RM125,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Kia+Optima+2018" alt="Kia Optima 2018">
-        <div class="car-info">
-          <h3>Kia Optima 2018</h3>
-          <p>Auto | 2.0cc | RM90,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Mitsubishi+Attrage+2021" alt="Mitsubishi Attrage 2021">
-        <div class="car-info">
-          <h3>Mitsubishi Attrage 2021</h3>
-          <p>Auto | 1.2cc | RM55,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Suzuki+Swift+2020" alt="Suzuki Swift 2020">
-        <div class="car-info">
-          <h3>Suzuki Swift 2020</h3>
-          <p>Auto | 1.2cc | RM60,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Ford+Focus+2019" alt="Ford Focus 2019">
-        <div class="car-info">
-          <h3>Ford Focus 2019</h3>
-          <p>Auto | 1.5cc | RM85,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Volkswagen+Golf+2021" alt="Volkswagen Golf 2021">
-        <div class="car-info">
-          <h3>Volkswagen Golf 2021</h3>
-          <p>Auto | 1.4cc | RM115,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=BMW+320i+2018" alt="BMW 320i 2018">
-        <div class="car-info">
-          <h3>BMW 320i 2018</h3>
-          <p>Auto | 2.0cc | RM150,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Audi+A4+2020" alt="Audi A4 2020">
-        <div class="car-info">
-          <h3>Audi A4 2020</h3>
-          <p>Auto | 2.0cc | RM180,000</p>
-        </div>
-      </div>
-      <div class="car">
-        <img src="https://via.placeholder.com/400x200?text=Mercedes+C200+2019" alt="Mercedes C200 2019">
-        <div class="car-info">
-          <h3>Mercedes C200 2019</h3>
-          <p>Auto | 2.0cc | RM200,000</p>
-        </div>
-      </div>
-      <!-- Tambah 90 kereta lagi dengan cara yang sama, guna model lain -->
-      <!-- Contoh lanjut boleh ditambah: Toyota Corolla, Honda CR-V, dll. -->
-      <!-- Untuk 100 kereta, ulang struktur di atas dengan model baru -->
     </section>
 
     <div class="btn-group">
-      <a class="btn" href="https://wa.me/60197460569?text=Hi+saya+berminat+dengan+kereta+Gigitbite+Trading+Auto" target="_blank">WhatsApp Kami</a>
+      <button class="btn" onclick="openModal('loan')">Loan</button>
+      <button class="btn" onclick="openModal('cash')">Cash</button>
       <a class="btn" href="https://forms.gle/xxxxxxxxxx" target="_blank">Semak Kelayakan Loan</a>
+    </div>
+
+    <!-- Tetingkap Modal -->
+    <div id="modal" class="modal">
+      <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h2 id="modal-title"></h2>
+        <p id="modal-text"></p>
+        <form id="loanForm" style="display: none;">
+          <input type="text" placeholder="Nama Penuh" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <input type="tel" placeholder="Nombor Telefon" required style="width: 100%; padding: 10px; margin: 10px 0;">
+          <button type="submit" class="btn">Hantar</button>
+        </form>
+      </div>
     </div>
   </div>
 
@@ -262,5 +171,39 @@
     © 2025 Gigitbite Trading Auto - Batu Pahat, Johor
   </footer>
 
+  <script>
+    function openModal(type) {
+      const modal = document.getElementById("modal");
+      const modalTitle = document.getElementById("modal-title");
+      const modalText = document.getElementById("modal-text");
+      const loanForm = document.getElementById("loanForm");
+
+      if (type === "loan") {
+        modalTitle.innerText = "Pembayaran melalui Loan";
+        modalText.innerText = "Isi borang di bawah untuk memohon loan. Kami akan hubungi anda secepat mungkin.";
+        loanForm.style.display = "block";
+      } else if (type === "cash") {
+        modalTitle.innerText = "Pembayaran melalui Cash";
+        modalText.innerText = "Bayaran tunai boleh dibuat di pejabat kami di Batu Pahat. Hubungi kami di WhatsApp untuk butiran.";
+        loanForm.style.display = "none";
+      }
+
+      modal.style.display = "flex";
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      modal.style.display = "none";
+    }
+
+    document.getElementById("loanForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const name = document.querySelector("#loanForm input[type='text']").value;
+      const phone = document.querySelector("#loanForm input[type='tel']").value;
+      alert(`Terima kasih, ${name}! Kami akan hubungi anda di ${phone} untuk proses loan.`);
+      this.reset();
+      closeModal();
+    });
+  </script>
 </body>
 </html>
